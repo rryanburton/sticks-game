@@ -1,9 +1,10 @@
 # sticks.py
+header = '\n/-\-\-/-\-/\-/\-/-/-\/-/\-//-/\-\n'
 def main():
     '''acts as the default function.
     Greets the player and starts the game-mode()
     '''
-    print('\n\n/-\-\-/-\-/\-/\-/-/-\/-/\-//-/\-')
+    print(header)
     print('\n\nWelcome to the Game of Sticks!\n\n')
     game_mode()
 
@@ -11,7 +12,7 @@ def game_mode():
     '''asks user to choose between human or computer
     opponent
     '''
-    print('\n/-\-\-/-\-/\-/\-/-/-\/-/\-//-/\-')
+    print(header)
     print('\nPlay against a friend (1)')
     print('or')
     print('Play against the computer (2)\n')
@@ -25,24 +26,41 @@ def game_mode():
     else:
         game_mode()
 
-# stick_count = 5
-# # print(stick_count)
-# # print(type(stick_count))
-# stick_count = int(input('How many sticks do you want (10-100)? '))
-#
-#
-#
-#
-#
-# def stick_counter():
-#     # while stick_count > 0:
-#         if stick_count > 1:
-#             print("There are currently {} sticks on the board. \n".format(stick_count))
-#             return stick_count
-#         elif stick_count <= 1:
-#         # else:
-#             print("\nThe game is over. {} lost.".format(turn))
-#             playagain()
+def gameloop():
+    '''asks for inital stick count.
+    shows stick count
+    asks player 1 for play.
+    checks that play.
+    shows stick count
+    asks player 2 for play.
+    checks that play.
+    '''
+    turn = 'player 1'
+    while True:
+        print(header)
+        stick_count = int(input('How many sticks do you want (10-100)? '))
+        if 1 <= stick_count <= 100:
+            # return stick_count
+            break
+        else:
+            print('\nYou will have to try again.\n')
+            gameloop()
+    print(stick_count)
+    while True:
+        while stick_count > 0:
+            if stick_count > 1:
+                print("\nThere are currently {} sticks on the board. \n".format(stick_count))
+                break
+            else:
+                print("\nThe game is over. {} lost.".format(turn))
+                playagain = input('Do you want to play again? ')
+                if playagain == 'y':
+                    gameloop()
+                else:
+                    main()
+
+
+
 #
 # def playagain():
 #     response = input('Do you want to play again?')
@@ -53,8 +71,7 @@ def game_mode():
 #         exit()
 #
 
-def gameloop():
-    print('gameloop')
+
 
 # while stick_count > -1:
 #     turn = 'player 1'
