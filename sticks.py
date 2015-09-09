@@ -39,28 +39,37 @@ def gameloop():
     while True:
         print(header)
         stick_count = int(input('How many sticks do you want (10-100)? '))
-        if 1 <= stick_count <= 100:
+        if 10 <= stick_count <= 100:
             # return stick_count
             break
         else:
             print('\nYou will have to try again.\n')
             gameloop()
     print(stick_count)
-    while True:
-        while stick_count > 0:
-            if stick_count > 1:
-                print("\nThere are currently {} sticks on the board. \n".format(stick_count))
-                break
-            else:
-                print("\nThe game is over. {} lost.".format(turn))
-                playagain = input('Do you want to play again? ')
-                if playagain == 'y':
-                    gameloop()
-                else:
-                    main()
 
 
+    # while True:
+    #     while stick_count > 0:
+    #         if stick_count > 1:
+    #             print("\nThere are currently {} sticks on the board. \n".format(stick_count))
+    #             break
+    #         else:
+    #             print("\nThe game is over. {} lost.".format(turn))
+    #             playagain = input('Do you want to play again? ')
+    #             if playagain == 'y':
+    #                 gameloop()
+    #             else:
+    #                 main()
 
+    player1_choice = input('Player 1: How many sticks do you take (1-3)? ')
+    if player1_choice is '1':
+        stick_count -= 1
+    elif player1_choice is '2':
+        stick_count -= 2
+    elif player1_choice is '3':
+            stick_count -= 3
+    print(stick_count)
+    exit()
 #
 # def playagain():
 #     response = input('Do you want to play again?')
@@ -76,13 +85,7 @@ def gameloop():
 # while stick_count > -1:
 #     turn = 'player 1'
 #     stick_counter()
-#     player1_choice = input('Player 1: How many sticks do you take (1-3)? ')
-#     if player1_choice is '1':
-#         stick_count -= 1
-#     elif player1_choice is '2':
-#         stick_count -= 2
-#     elif player1_choice is '3':
-#         stick_count -= 3
+#
 #
 #     # print(stick_count)
 #     turn = 'player 2'
